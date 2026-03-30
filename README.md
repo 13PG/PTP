@@ -2,7 +2,27 @@
 
 一个本地运行的论文转 PPT 小项目，支持手机端友好的上传界面。
 
-功能：
+> 本地运行，无需外部大模型 API。上传 PDF / Word 论文后，系统会围绕指定主题整理文本与插图，并生成可下载的 PPT 初稿。
+
+## 界面展示
+
+<p align="center">
+  <img src="docs/images/homepage-preview.png" alt="PTP_v1 上传页面" width="48%">
+  <img src="docs/images/result-preview.png" alt="PTP_v1 结果页面" width="48%">
+</p>
+
+<p align="center">
+  上传页面 / 结果页面
+</p>
+
+## 使用流程
+
+1. 输入本次汇报或研究整理的主题
+2. 一次上传多个 `.pdf`、`.docx`、`.doc`
+3. 系统自动解析标题、作者、摘要、正文相关段落和论文图片
+4. 生成并下载带结构化内容的 `.pptx` 文件
+
+## 主要功能
 
 - 一次上传多个 `.pdf`、`.docx`、`.doc`
 - 用户输入主题后，自动筛选和主题相关的关键内容
