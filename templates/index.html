@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTP_v1 | 论文主题自动转PPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="hero-card">
+            <div class="eyebrow">PTP_v1</div>
+            <h1>上传论文文件，围绕主题自动生成带图片的 PPT</h1>
+            <p class="hero-copy">
+                支持一次上传多个 PDF / Word 文件。系统会抓取论文标题、作者、相关段落和论文里的图片，再整理成可下载的演示文稿。
+            </p>
+            <div class="feature-strip">
+                <span>多文件上传</span>
+                <span>手机界面</span>
+                <span>自动抽图</span>
+                <span>PPT 下载</span>
+            </div>
+        </section>
+
+        <section class="panel-card">
+            <form id="generate-form">
+                <label class="field-label" for="topic">主题</label>
+                <textarea id="topic" name="topic" rows="3" placeholder="例如：肿瘤免疫治疗中的多模态影像分析"></textarea>
+
+                <label class="field-label" for="files">上传文件</label>
+                <label class="upload-zone" for="files">
+                    <input id="files" name="files" type="file" accept=".pdf,.doc,.docx" multiple>
+                    <span class="upload-title">点此选择多个 PDF / Word 文件</span>
+                    <span class="upload-subtitle">建议上传论文原文，系统会尽量提取题目、作者、摘要和图片</span>
+                </label>
+
+                <div id="file-list" class="file-list empty">暂未选择文件</div>
+
+                <button id="submit-btn" class="submit-btn" type="submit">生成 PPT</button>
+            </form>
+        </section>
+
+        <section id="status-card" class="panel-card hidden">
+            <div class="status-head">
+                <div>
+                    <div class="eyebrow">处理结果</div>
+                    <h2>生成状态</h2>
+                </div>
+                <div id="status-pill" class="status-pill">等待中</div>
+            </div>
+            <p id="status-text" class="status-text">上传后这里会显示处理状态。</p>
+            <div class="progress-block">
+                <div class="progress-meta">
+                    <span id="progress-stage">等待任务开始</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            <a id="download-link" class="download-link hidden" href="#" download>下载 PPT</a>
+
+            <div id="warning-box" class="warning-box hidden"></div>
+
+            <div class="summary-block">
+                <h3>主题摘要</h3>
+                <ul id="summary-list"></ul>
+            </div>
+
+            <div class="documents-block">
+                <h3>文档结果</h3>
+                <div id="document-list" class="document-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
