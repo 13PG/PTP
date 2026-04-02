@@ -4,3 +4,8 @@ storage/outputs/*
 !storage/uploads/.gitkeep
 !storage/outputs/.gitkeep
 
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
